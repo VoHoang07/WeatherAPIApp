@@ -31,7 +31,7 @@ class WeatherViewController: UIViewController {
         tempLabel.textAlignment = .center
         desLabel.textAlignment = .center
         
-        button.setTitle("Refressh", for: .normal)
+        button.setTitle("Refresh", for: .normal)
         button.setTitleColor(.blue, for: .normal)
         button.addTarget(self, action: #selector(onRefresh), for: .touchUpInside)
         let stack = UIStackView(arrangedSubviews: [cityLabel, tempLabel, desLabel, button])
@@ -53,12 +53,12 @@ class WeatherViewController: UIViewController {
         vm.fetchWeather { [weak self] in
             guard let self = self else {return}
             print("cityLabel: ", self.vm.cityName)
-            print("tempLabel: ", self.vm.temprature)
-            print("desLabel: ", self.vm.description)
+            print("tempLabel: ", self.vm.temperature)
+            print("desLabel: ", self.vm.weatherDescription)
             
             self.cityLabel.text = self.vm.cityName
-            self.tempLabel.text = self.vm.temprature
-            self.desLabel.text = self.vm.description
+            self.tempLabel.text = self.vm.temperature
+            self.desLabel.text = self.vm.weatherDescription
         }
     }
     //MARK: - Action

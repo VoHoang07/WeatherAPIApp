@@ -10,8 +10,8 @@ import UIKit
 class WeatherViewModel {
     //MARK: - Properties (data for UI)
     var cityName: String = ""
-    var temprature: String = ""
-    var description: String = ""
+    var temperature: String = ""
+    var weatherDescription: String = ""
     
     //MARK: - Service
     private let service = WeatherService()
@@ -24,8 +24,8 @@ class WeatherViewModel {
             //MARK: - business logic
             let celsius = data.main.temp - 273.15
             self.cityName = data.name
-            self.temprature = "\(celsius)°C"
-            self.description = data.weather.first?.description ?? ""
+            self.temperature = String(format: "%.1f°C", celsius)
+            self.weatherDescription = data.weather.first?.description ?? ""
             
             // Báo cho View updata UI
             completion()
