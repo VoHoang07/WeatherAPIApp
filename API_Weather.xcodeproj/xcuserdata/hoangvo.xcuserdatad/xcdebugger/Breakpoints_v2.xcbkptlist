@@ -14,10 +14,10 @@
             filePath = "View/WeatherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "bindData()"
-            landmarkType = "7">
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "WeatherViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -30,10 +30,10 @@
             filePath = "View/WeatherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "bindData()"
-            landmarkType = "7">
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "WeatherViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -46,10 +46,10 @@
             filePath = "View/WeatherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "bindData()"
-            landmarkType = "7">
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "WeatherViewController"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "A17BFE52-1D04-4A73-9441-34554FEFB552 - 5c8864be16377d6b"
@@ -94,10 +94,10 @@
             filePath = "View/WeatherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "bindData()"
-            landmarkType = "7">
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "WeatherViewController"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "62DB78A2-F9B6-46BB-A812-0624BE33AFAA - 5c8864be16377d25"
@@ -135,16 +135,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "47C5637A-CF5E-4457-AEBF-0022483300BE"
-            shouldBeEnabled = "No"
+            uuid = "6DBE80D5-CBBA-4749-B25C-A5E5407B8D96"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Data/WeatherService.swift"
+            filePath = "View/WeatherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
-            landmarkName = "fetchWeather(city:completion:)"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
+            landmarkName = "renderRecentSearches()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
