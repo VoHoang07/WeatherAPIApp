@@ -9,16 +9,16 @@ import UIKit
 
 struct WeatherResponse: Codable {
     let name: String
-    let main: Main
-    let weather: [Weather]
+    let main: MainInfo
+    let weather: [WeatherInfo]
 }
 
-struct Main: Codable {
+struct MainInfo: Codable {
     let temp: Double
     let humidity: Int
 }
 
-struct Weather: Codable {
+struct WeatherInfo: Codable {
     let main: String
     let description: String
 }

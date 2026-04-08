@@ -13,7 +13,7 @@ enum WeatherViewState {
     case success(WeatherResponse)
     case error(String)
 }
-class WeatherViewModel {
+final class WeatherViewModel {
     //MARK: - ViewState
     private let recentSearchesKey = "recent_searches"
     
@@ -27,15 +27,21 @@ class WeatherViewModel {
     private let service = WeatherService()
     
     //MARK: - fetch API
-    func fetchWeather(city: String, completion: @escaping(WeatherResponse?) -> Void) {
+    func fetchWeather(city: String, completion: ((WeatherResponse?) -> Void)? = nil) {
         onStateWeather?(.loading)
-        service.fetchWeather(city: city) {[weak self] response in
+        
+        service.fetchWeather(city: city) {[weak self] result in
             guard let self = self else {return}
-            if let data = response {
-                self.onStateWeather?(.success(data))
+            
+            switch result {
+            case .success(let data):
                 self.saveRecentSearches(city: city)
-            } else {
-                self.onStateWeather?(.error("City not found or failed to load weather data."))
+                self.onStateWeather?(.success(data))
+                completion?(data)
+                            
+            case .failure(let error):
+                self.onStateWeather?(.error(error.localizedDescription))
+                completion?(nil)
             }
 //            //MARK: - business logic
 ////            let celsius = data.main.temp - 273.15
@@ -44,7 +50,7 @@ class WeatherViewModel {
 //            self.weatherDescription = data.weather.first?.description ?? ""
 //            
 //            // Báo cho View updata UI
-            completion(response)
+//            completion(response)
         }
     }
     func getRecentSearches() -> [String] {

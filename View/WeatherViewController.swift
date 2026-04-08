@@ -29,6 +29,7 @@ class WeatherViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         render(.idle)
+        bindViewModel()
         renderRecentSearches()
 //        bindData()
     }
@@ -162,26 +163,14 @@ class WeatherViewController: UIViewController {
             render(.error("Please enter a city name"))
             return
         }
-        render(.loading)
-        vm.fetchWeather(city: city) { [weak self] response in
-            DispatchQueue.main.async {
-                guard let self = self else {return}
-                
-                if let data = response {
-                    self.render(.success(data))
-//                    self.renderRecentSearches()
-                } else {
-                    self.render(.error("City not found"))
-//                    self.renderRecentSearches()
-                }
-                self.renderRecentSearches()
-            }
-        }
+        
+        vm.fetchWeather(city: city)
     }
     //MARK: -render UI
     func renderRecentSearches() {
-        recentStackView.arrangedSubviews.forEach{view in
-            recentStackView.removeArrangedSubview(view)
+        recentStackView.arrangedSubviews.forEach{subview in
+            recentStackView.removeArrangedSubview(subview)
+            subview.removeFromSuperview()
         }
         
         let recentCities = vm.getRecentSearches()
@@ -203,6 +192,19 @@ class WeatherViewController: UIViewController {
         }
         recentStackView.layoutIfNeeded()
         view.layoutIfNeeded()
+    }
+    func bindViewModel() {
+        vm.onStateWeather = { [weak self] state in
+            guard let self = self else { return }
+            self.render(state)
+            
+            switch state {
+            case .success, .error:
+                self.renderRecentSearches()
+            default:
+                break
+            }
+        }
     }
 }
 
